@@ -1,0 +1,28 @@
+<%- include("header")-%>
+
+<div class="table">
+    <div class="container">
+        <h1>Transactions History</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">From(Sender)</th>
+                    <th scope="col">To(Receiver)</th>
+                    <th scope="col">Amount Transferred</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% newMoneyTransfers.forEach(transfer => {%>
+                    <tr>
+                        <td scope="col"><%=transfer.moneyFrom%></td>
+                        <td scope="col"><%=transfer.moneyTo%></td>
+                        <td scope="col"><%=transfer.amountTransfer%></td>
+                    </tr>
+                <%});%>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include("footer")-%>

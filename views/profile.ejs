@@ -1,0 +1,63 @@
+<%- include("header")-%>
+<div class="card text-center" style="width: 18rem; margin:3rem auto;">
+    <h1> <i id="colorpad" style="color:blue" class="fa fa-user fa-5x" aria-hidden="true"></i></h1>
+    <div class="text-white bg-danger mb-3">
+        <h2 class="card-header"><%=ejsfirstName%> <%=ejsLastName%></h2>
+        <div class="card-body">
+            <h5 class="card-title"><%=ejsUserEmail%></h5>
+            <p class="card-text"><%=ejsUserBalance%></p>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        Transfer Money
+    </button>
+
+    <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h3 class="modal-title" id="exampleModalCenterTitle">Transfer Money</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="transfer-form" action="/moneyTransfer" method="POST">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" name="ejsfromID" autocomplete="off"
+                                placeholder="Confirm your customer ID">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" name="ejstoID" autocomplete="off"
+                                placeholder="Enter Customer ID of the receiver...">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Amount</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" name="ejsAmount" autocomplete="off"
+                                placeholder="Enter amount to be transferred...">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+                    <button type="submit" class="btn btn-primary" name="button" value="transfer-button"
+                        form="transfer-form">Make Transfer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<%- include("footer")-%>
